@@ -85,20 +85,18 @@ Download these as you are used to. We recommend using `nix` or `brew`, but that'
 6. Download the latest docker build: `docker-compose -f ./docker/compose.yml pull trezor-user-env-mac trezor-user-env-regtest`
 7. Run it: `docker-compose -f ./docker/compose.yml up trezor-user-env-mac trezor-user-env-regtest` [^1]
 8. Open http://localhost:9002.
+
 #### Run it on ARM Mac
 
-1. Run XQuartz and leave it running on the background. Wait till it is launched.
-2. In XQuartz settings go to Preferences > Security and enable "Allow connections from network clients".
-3. Open a new terminal window (not in XQuartz) and add yourself to the X access control list: `xhost +127.0.0.1` (you will probably need to logout/login after XQuartz installation to have `xhost` command available)
-4. Clone this repo `git clone git@github.com:trezor/trezor-user-env.git`. If you are new to Github, try `git clone https://github.com/trezor/trezor-user-env.git` instead.
-5. Enter the directory using `cd trezor-user-env`.
-6. Download the latest docker build: `docker-compose -f ./docker/compose.yml pull trezor-user-env-mac-arm`
-7. Run it: `docker-compose -f ./docker/compose.yml up trezor-user-env-mac-arm` [^1]
-8. Open http://localhost:9002.
+1. Follow steps 1-5 above for Intel Mac.
+2. Download the latest docker build: `docker-compose -f ./docker/compose.yml pull trezor-user-env-mac-arm`.
+3. Run it: `docker-compose -f ./docker/compose.yml up trezor-user-env-mac-arm`.
+4. Open http://localhost:9002.
 
 For a future use you can omit the second step and run `up` (the third step) directly. **However, you will not have the latest master builds then!**
 
 [^1]: If you get an error with `trezor-user-env-regtest` starting up, you will need to clean container contents by pruning that container or all stopped containers with `docker container prune`
+
 ----
 
 ### Windows
