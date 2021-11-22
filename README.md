@@ -65,7 +65,7 @@ For a future use you can omit the second step and run `up` (the third step) dire
 
 ### MacOS
 
-*Supported on Intel Mac devices (ARM Mac's are not supported for now)*
+*Supported on Intel and ARM Mac devices (Regtest is not supported on ARM Mac device)*
 
 #### Prerequisites
 
@@ -75,7 +75,7 @@ You need:
 
 Download these as you are used to. We recommend using `nix` or `brew`, but that's your fight.
 
-#### Run it
+#### Run it on Intel Mac
 
 1. Run XQuartz and leave it running on the background. Wait till it is launched.
 2. In XQuartz settings go to Preferences > Security and enable "Allow connections from network clients".
@@ -84,6 +84,16 @@ Download these as you are used to. We recommend using `nix` or `brew`, but that'
 5. Enter the directory using `cd trezor-user-env`.
 6. Download the latest docker build: `docker-compose -f ./docker/compose.yml pull trezor-user-env-mac trezor-user-env-regtest`
 7. Run it: `docker-compose -f ./docker/compose.yml up trezor-user-env-mac trezor-user-env-regtest` [^1]
+8. Open http://localhost:9002.
+#### Run it on ARM Mac
+
+1. Run XQuartz and leave it running on the background. Wait till it is launched.
+2. In XQuartz settings go to Preferences > Security and enable "Allow connections from network clients".
+3. Open a new terminal window (not in XQuartz) and add yourself to the X access control list: `xhost +127.0.0.1` (you will probably need to logout/login after XQuartz installation to have `xhost` command available)
+4. Clone this repo `git clone git@github.com:trezor/trezor-user-env.git`. If you are new to Github, try `git clone https://github.com/trezor/trezor-user-env.git` instead.
+5. Enter the directory using `cd trezor-user-env`.
+6. Download the latest docker build: `docker-compose -f ./docker/compose.yml pull trezor-user-env-mac-arm`
+7. Run it: `docker-compose -f ./docker/compose.yml up trezor-user-env-mac-arm` [^1]
 8. Open http://localhost:9002.
 
 For a future use you can omit the second step and run `up` (the third step) directly. **However, you will not have the latest master builds then!**
