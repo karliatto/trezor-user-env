@@ -40,7 +40,7 @@ cd "$BIN_DIR"
 
 # mark as executable and patch for Nix
 chmod u+x trezor-emu-*
-nix-shell -p autoPatchelfHook SDL2 SDL2_image --run "autoPatchelf trezor-emu-*"
+nix-shell -p autoPatchelfHook SDL2 SDL2_image -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/7fad01d9d5a3f82081c00fb57918d64145dc904c.tar.gz --run "autoPatchelf trezor-emu-*"
 
 # no need for Mac builds
 rm -rf macos
